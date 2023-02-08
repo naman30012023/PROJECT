@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   get 'user/index' => 'user#index'
   post 'user/add' => 'user#add'
   put 'user/update' => 'user#update'
+  delete 'user/delete' => 'user#delete'
 
   post 'auth/login' => 'authentication#login'
 end
