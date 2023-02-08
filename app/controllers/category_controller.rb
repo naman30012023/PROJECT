@@ -1,5 +1,8 @@
 class CategoryController < ApplicationController
-    skip_before_action :verify_authenticity_token
+    # skip_before_action :verify_authenticity_token
+    before_action :authorize_request
+    before_action :authenticate
+
     def index
         categories = Category.all
         render json: categories
@@ -13,4 +16,13 @@ class CategoryController < ApplicationController
     def findById
         c = Category.find(params[:category_id])
     end
+
+    private
+
+    def authenticate
+        if(@current_user.id != 1)
+            raise "Not Authorized"
+        end
+    end
+    
 end

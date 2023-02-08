@@ -4,4 +4,5 @@ class ArticleCategoryController < ApplicationController
         a = ArticleCategory.all
         render json: a
     end
+
 end
